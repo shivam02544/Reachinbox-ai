@@ -14,7 +14,7 @@
 Developed as a **Mobile App Development Project** by:
 * **Prabhat Kumar**
 * **Isha Kumari**
-* **Abhishek Kumar**
+* **Abhishek Sharma**
 
 ---
 
