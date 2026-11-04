@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/spacing_32">
+
+        <!-- Profile Header -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profileHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/screen_padding"
+            android:background="@color/md_theme_surface">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/avatarCard"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:cardBackgroundColor="@color/md_theme_primaryContainer"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/md_theme_outline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <TextView
+                    android:id="@+id/tvAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.ReachInbox.Title"
+                    android:textColor="@color/md_theme_onPrimaryContainer"
+                    android:visibility="gone"
+                    tools:text="TU" />
+
+                <ImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/profile_picture_description"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    tools:src="@drawable/ic_person"
+                    tools:visibility="visible" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/txt_user_name"
+                style="@style/TextAppearance.ReachInbox.CardTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/avatarCard"
+                app:layout_constraintTop_toTopOf="@+id/avatarCard"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintBottom_toTopOf="@+id/txt_user_email"
+                tools:text="Test User" />
+
+            <TextView
+                android:id="@+id/txt_user_email"
+                style="@style/TextAppearance.ReachInbox.BodySecondary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_16"
+                app:layout_constraintBottom_toBottomOf="@+id/avatarCard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/avatarCard"
+                app:layout_constraintTop_toBottomOf="@+id/txt_user_name"
+                tools:text="test@example.com" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/md_theme_outline" />
+
+        <!-- Workspace Section -->
+        <TextView
+            style="@style/TextAppearance.ReachInbox.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_padding"
+            android:layout_marginTop="@dimen/spacing_24"
+            android:text="@string/label_workspace"
+            android:textAllCaps="true" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.ReachInbox.Card.Outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_padding"
+            android:layout_marginTop="@dimen/spacing_12">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_drafts"
+                    style="@style/Widget.ReachInbox.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:paddingTop="@dimen/spacing_16"
+                    android:paddingBottom="@dimen/spacing_16"
+                    android:text="@string/nav_drafts"
+                    android:textAppearance="@style/TextAppearance.ReachInbox.Body"
+                    android:textColor="@color/md_theme_onSurface"
+                    app:icon="@drawable/ic_edit"
+                    app:iconPadding="@dimen/spacing_16"
+                    app:iconSize="@dimen/icon_size_medium"
+                    app:iconTint="@color/md_theme_primary" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="56dp"
+                    android:background="@color/md_theme_outline" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_resume"
+                    style="@style/Widget.ReachInbox.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:paddingTop="@dimen/spacing_16"
+                    android:paddingBottom="@dimen/spacing_16"
+                    android:text="AI Resume"
+                    android:textAppearance="@style/TextAppearance.ReachInbox.Body"
+                    android:textColor="@color/md_theme_onSurface"
+                    app:icon="@drawable/ic_sparkles"
+                    app:iconPadding="@dimen/spacing_16"
+                    app:iconSize="@dimen/icon_size_medium"
+                    app:iconTint="@color/md_theme_primary" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="56dp"
+                    android:background="@color/md_theme_outline" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_templates"
+                    style="@style/Widget.ReachInbox.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:paddingTop="@dimen/spacing_16"
+                    android:paddingBottom="@dimen/spacing_16"
+                    android:text="@string/title_templates"
+                    android:textAppearance="@style/TextAppearance.ReachInbox.Body"
+                    android:textColor="@color/md_theme_onSurface"
+                    app:icon="@drawable/ic_mail"
+                    app:iconPadding="@dimen/spacing_16"
+                    app:iconSize="@dimen/icon_size_medium"
+                    app:iconTint="@color/md_theme_primary" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="56dp"
+                    android:background="@color/md_theme_outline" />
+
+                <com.google.android.material.button.MaterialButton
+                     android:id="@+id/btn_senders"
+                    style="@style/Widget.ReachInbox.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:paddingTop="@dimen/spacing_16"
+                    android:paddingBottom="@dimen/spacing_16"
+                    android:text="@string/nav_senders"
+                    android:textAppearance="@style/TextAppearance.ReachInbox.Body"
+                    android:textColor="@color/md_theme_onSurface"
+                    app:icon="@drawable/ic_send"
+                    app:iconPadding="@dimen/spacing_16"
+                    app:iconSize="@dimen/icon_size_medium"
+                    app:iconTint="@color/md_theme_primary" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Preferences Section -->
+        <TextView
+            style="@style/TextAppearance.ReachInbox.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_padding"
+            android:layout_marginTop="@dimen/spacing_24"
+            android:text="@string/label_preferences"
+            android:textAllCaps="true" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.ReachInbox.Card.Outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_padding"
+            android:layout_marginTop="@dimen/spacing_12">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_settings"
+                    style="@style/Widget.ReachInbox.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:paddingTop="@dimen/spacing_16"
+                    android:paddingBottom="@dimen/spacing_16"
+                    android:text="@string/nav_settings"
+                    android:textAppearance="@style/TextAppearance.ReachInbox.Body"
+                    android:textColor="@color/md_theme_onSurface"
+                    app:icon="@drawable/ic_settings"
+                    app:iconPadding="@dimen/spacing_16"
+                    app:iconSize="@dimen/icon_size_medium"
+                    app:iconTint="@color/md_theme_primary" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="56dp"
+                    android:background="@color/md_theme_outline" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_theme"
+                    style="@style/Widget.ReachInbox.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:paddingTop="@dimen/spacing_16"
+                    android:paddingBottom="@dimen/spacing_16"
+                    android:text="@string/label_appearance"
+                    android:textAppearance="@style/TextAppearance.ReachInbox.Body"
+                    android:textColor="@color/md_theme_onSurface"
+                    app:icon="@drawable/ic_edit"
+                    app:iconPadding="@dimen/spacing_16"
+                    app:iconSize="@dimen/icon_size_medium"
+                    app:iconTint="@color/md_theme_primary" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- App Section -->
+        <TextView
+            style="@style/TextAppearance.ReachInbox.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_padding"
+            android:layout_marginTop="@dimen/spacing_24"
+            android:text="@string/label_application"
+            android:textAllCaps="true" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.ReachInbox.Card.Outline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_padding"
+            android:layout_marginTop="@dimen/spacing_12">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_about"
+                    style="@style/Widget.ReachInbox.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/screen_padding"
+                    android:paddingEnd="@dimen/screen_padding"
+                    android:paddingTop="@dimen/spacing_16"
+                    android:paddingBottom="@dimen/spacing_16"
+                    android:text="@string/label_about_reachinbox"
+                    android:textAppearance="@style/TextAppearance.ReachInbox.Body"
+                    android:textColor="@color/md_theme_onSurface"
+                    app:icon="@drawable/ic_activity"
+                    app:iconPadding="@dimen/spacing_16"
+                    app:iconSize="@dimen/icon_size_medium"
+                    app:iconTint="@color/md_theme_primary" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Danger Zone -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_logout"
+            style="@style/Widget.ReachInbox.Button.Destructive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_32"
+            android:layout_marginHorizontal="@dimen/screen_padding"
+            android:text="@string/btn_logout"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.ReachInbox.Label"
+            app:icon="@drawable/ic_warning"
+            app:iconTint="@color/colorError" />
+
+        <TextView
+            style="@style/TextAppearance.ReachInbox.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:gravity="center"
+            android:text="@string/label_version_info" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

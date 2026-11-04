@@ -1,0 +1,1 @@
+INSERT INTO "SenderAccount" ("id", "userId", "displayName", "email", "provider", "status", "createdAt", "updatedAt") VALUES ('e8e8b8c8-d8e8-48e8-b8c8-f8e8b8c8d8e8', '59df2560-c6c8-48f7-add5-d362c9e06cfb', 'Test Sender 2', 'test-sender2@example.com', 'SMTP', 'CONNECTED', NOW(), NOW());

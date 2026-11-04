@@ -1,0 +1,344 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+enum SenderStatus {
+  CONNECTED
+  DISCONNECTED
+  ERROR
+}
+
+enum EmailStatus {
+  DRAFT
+  PROCESSING
+  SCHEDULED
+  SENT
+  FAILED
+  CANCELLED
+}
+
+enum SchedulingStatus {
+  SCHEDULED
+  PROCESSING
+  SENT
+  FAILED
+  CANCELLED
+}
+
+enum ActivityType {
+  EMAIL_SCHEDULED
+  EMAIL_SENT
+  EMAIL_FAILED
+  EMAIL_CANCELLED
+  SENDER_CONNECTED
+  SENDER_DISCONNECTED
+  CAMPAIGN_CREATED
+  CAMPAIGN_STARTED
+  CAMPAIGN_COMPLETED
+}
+
+enum CampaignStatus {
+  DRAFT
+  READY
+  SCHEDULED
+  RUNNING
+  PAUSED
+  COMPLETED
+  CANCELLED
+  FAILED
+}
+
+enum RecipientStatus {
+  PENDING
+  QUEUED
+  PROCESSING
+  SENT
+  FAILED
+  CANCELLED
+}
+
+model User {
+  id           String     @id @default(uuid()) @db.Uuid
+  email        String     @unique
+  name         String?
+  avatarUrl    String?
+  passwordHash String
+  status       UserStatus @default(ACTIVE)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  senderAccounts SenderAccount[]
+  emails         Email[]
+  activities     Activity[]
+  refreshTokens    RefreshToken[]
+  campaigns        Campaign[]
+  templates        Template[]
+  resume           Resume?
+  jobRequirements  JobRequirement[]
+  matchAnalyses    MatchAnalysis[]
+
+  @@index([email])
+}
+
+model Resume {
+  id             String   @id @default(uuid()) @db.Uuid
+  userId         String   @unique @db.Uuid
+  fileName       String
+  mimeType       String
+  parsedText     String?
+  structuredData Json?
+  status         String   @default("UPLOADED")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user    User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  matches MatchAnalysis[]
+
+  @@index([userId])
+}
+
+model JobRequirement {
+  id              String   @id @default(uuid()) @db.Uuid
+  userId          String   @db.Uuid
+  title           String?
+  company         String?
+  description     String
+  location        String?
+  employmentType  String?
+  additionalNotes String?
+  structuredData  Json?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user    User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  matches MatchAnalysis[]
+
+  @@index([userId])
+}
+
+model MatchAnalysis {
+  id               String   @id @default(uuid()) @db.Uuid
+  userId           String   @db.Uuid
+  resumeId         String   @db.Uuid
+  jobRequirementId String   @db.Uuid
+  result           Json
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  resume         Resume         @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  jobRequirement JobRequirement @relation(fields: [jobRequirementId], references: [id], onDelete: Cascade)
+
+  @@unique([resumeId, jobRequirementId])
+  @@index([userId])
+  @@index([jobRequirementId])
+}
+
+model Template {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  name      String
+  subject   String
+  bodyHtml  String?
+  bodyText  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([userId, updatedAt])
+}
+
+model RefreshToken {
+  id        String    @id @default(uuid()) @db.Uuid
+  tokenHash String    @unique
+  userId    String    @db.Uuid
+  device    String?
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+  revokedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([tokenHash])
+}
+
+model SenderAccount {
+  id          String       @id @default(uuid()) @db.Uuid
+  userId      String       @db.Uuid
+  displayName String?
+  email       String
+  provider    String?
+  status      SenderStatus @default(CONNECTED)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  user          User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  emails        Email[]
+  inboundEmails InboundEmail[]
+  credential    SenderCredential?
+  campaigns     Campaign[]
+
+  @@index([userId])
+  @@index([email])
+  @@index([status])
+}
+
+model SenderCredential {
+  id              String   @id @default(uuid()) @db.Uuid
+  senderAccountId String   @unique @db.Uuid
+  smtpHost        String
+  smtpPort        Int
+  smtpUsername    String
+  encryptedSecret String // AES-256-GCM encrypted
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  senderAccount SenderAccount @relation(fields: [senderAccountId], references: [id], onDelete: Cascade)
+}
+
+model Email {
+  id              String      @id @default(uuid()) @db.Uuid
+  userId          String      @db.Uuid
+  senderAccountId String      @db.Uuid
+  recipient       String?
+  subject         String?
+  htmlBody        String?
+  textBody        String?
+  status          EmailStatus @default(DRAFT)
+  idempotencyKey    String?        @db.Uuid
+  providerMessageId String?        @unique
+  parentEmailId     String?        @db.Uuid
+  followUpNumber    Int?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  user               User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  senderAccount      SenderAccount       @relation(fields: [senderAccountId], references: [id], onDelete: Cascade)
+  scheduledEmails    ScheduledEmail[]
+  activities         Activity[]
+  campaignRecipients CampaignRecipient[]
+  inboundEmails      InboundEmail[]      @relation("EmailReplies")
+
+  parentEmail        Email?              @relation("EmailFollowUps", fields: [parentEmailId], references: [id], onDelete: SetNull)
+  followUps          Email[]             @relation("EmailFollowUps")
+
+  @@unique([userId, idempotencyKey])
+  @@index([userId])
+  @@index([senderAccountId])
+  @@index([status])
+  @@index([createdAt])
+  @@index([parentEmailId])
+}
+
+model InboundEmail {
+  id              String   @id @default(uuid()) @db.Uuid
+  messageId       String   @unique
+  inReplyTo       String?
+  senderAccountId String   @db.Uuid
+  fromEmail       String
+  toEmail         String
+  subject         String?
+  textBody        String?
+  htmlBody        String?
+  matchedEmailId  String?  @db.Uuid
+  analysis        Json?
+  receivedAt      DateTime @default(now())
+  createdAt       DateTime @default(now())
+
+  senderAccount   SenderAccount @relation(fields: [senderAccountId], references: [id], onDelete: Cascade)
+  matchedEmail    Email?        @relation("EmailReplies", fields: [matchedEmailId], references: [id], onDelete: SetNull)
+
+  @@index([senderAccountId])
+  @@index([matchedEmailId])
+  @@index([messageId])
+}
+
+model ScheduledEmail {
+  id          String           @id @default(uuid()) @db.Uuid
+  emailId     String           @db.Uuid
+  scheduledAt DateTime
+  status      SchedulingStatus @default(SCHEDULED)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  email Email @relation(fields: [emailId], references: [id], onDelete: Cascade)
+
+  @@index([emailId])
+  @@index([status])
+  @@index([scheduledAt])
+}
+
+model Campaign {
+  id              String         @id @default(uuid()) @db.Uuid
+  userId          String         @db.Uuid
+  senderAccountId String         @db.Uuid
+  name            String
+  subject         String
+  bodyHtml        String?
+  bodyText        String?
+  status          CampaignStatus @default(DRAFT)
+  scheduledAt     DateTime?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  user          User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  senderAccount SenderAccount       @relation(fields: [senderAccountId], references: [id], onDelete: Cascade)
+  recipients    CampaignRecipient[]
+
+  @@index([userId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model CampaignRecipient {
+  id           String          @id @default(uuid()) @db.Uuid
+  campaignId   String          @db.Uuid
+  recipient    String
+  status       RecipientStatus @default(PENDING)
+  attempts     Int             @default(0)
+  sentAt       DateTime?
+  failedAt     DateTime?
+  errorMessage String?
+  bullJobId    String?         @unique
+  emailId      String?         @db.Uuid
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  email    Email?   @relation(fields: [emailId], references: [id], onDelete: SetNull)
+
+  @@unique([campaignId, recipient])
+  @@index([campaignId])
+  @@index([status])
+  @@index([bullJobId])
+}
+
+model Activity {
+  id        String       @id @default(uuid()) @db.Uuid
+  userId    String       @db.Uuid
+  emailId   String?      @db.Uuid
+  type      ActivityType
+  message   String
+  createdAt DateTime     @default(now())
+
+  user  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  email Email? @relation(fields: [emailId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([createdAt])
+  @@index([type])
+}

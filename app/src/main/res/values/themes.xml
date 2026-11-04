@@ -1,0 +1,287 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ReachInbox" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Brand Colors -->
+        <item name="colorPrimary">@color/md_theme_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_onPrimaryContainer</item>
+
+        <item name="colorSecondary">@color/md_theme_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_onSecondaryContainer</item>
+
+        <item name="android:windowBackground">@color/md_theme_background</item>
+        <item name="colorSurface">@color/md_theme_surface</item>
+        <item name="colorOnSurface">@color/md_theme_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_onSurfaceVariant</item>
+        <item name="colorOutline">@color/md_theme_outline</item>
+        <item name="colorOutlineVariant">@color/md_theme_outlineVariant</item>
+        <item name="colorControlActivated">@color/md_theme_primary</item>
+        <item name="android:colorAccent">@color/md_theme_primary</item>
+
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+        <item name="colorErrorContainer">@color/colorErrorContainer</item>
+        <item name="colorOnErrorContainer">@color/colorOnErrorContainer</item>
+
+        <item name="android:statusBarColor">@color/md_theme_background</item>
+        <item name="android:windowLightStatusBar">@bool/window_light_status_bar</item>
+        <item name="android:navigationBarColor">@color/md_theme_surface</item>
+
+        <!-- Component Styles -->
+        <item name="materialButtonStyle">@style/Widget.ReachInbox.Button</item>
+        <item name="textInputStyle">@style/Widget.ReachInbox.TextInputLayout</item>
+        <item name="toolbarStyle">@style/Widget.ReachInbox.Toolbar</item>
+        <item name="bottomNavigationStyle">@style/Widget.ReachInbox.NavigationBar</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.ReachInbox.AlertDialog</item>
+    </style>
+
+    <style name="Theme.ReachInbox" parent="Base.Theme.ReachInbox" />
+
+    <style name="ThemeOverlay.ReachInbox.AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">@color/md_theme_surface</item>
+        <item name="colorOnSurface">@color/md_theme_onSurface</item>
+        <item name="colorPrimary">@color/md_theme_primary</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="Widget.ReachInbox.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ReachInbox.Large</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.LabelLarge</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Button.Primary" parent="Widget.ReachInbox.Button">
+        <item name="backgroundTint">@color/md_theme_primary</item>
+        <item name="android:textColor">@color/md_theme_onPrimary</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ReachInbox.Large</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.LabelLarge</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/md_theme_primaryContainer</item>
+        <item name="android:textColor">@color/md_theme_onPrimaryContainer</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ReachInbox.Large</item>
+        <item name="strokeColor">@color/md_theme_outline</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.LabelLarge</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Button.TextButton" parent="Widget.Material3.Button.TextButton">
+        <item name="shapeAppearance">@style/ShapeAppearance.ReachInbox.Medium</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Button.Destructive" parent="Widget.Material3.Button.TextButton">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textColor">@color/colorError</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ReachInbox.Medium</item>
+    </style>
+
+    <!-- TextInputLayout Style -->
+    <style name="Widget.ReachInbox.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/md_theme_outline</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/input_corner_radius</item>
+        <item name="hintTextColor">@color/md_theme_onSurfaceVariant</item>
+    </style>
+
+    <style name="Widget.ReachInbox.TextInputLayout.ExposedDropdown" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/md_theme_outline</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/input_corner_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/input_corner_radius</item>
+        <item name="hintTextColor">@color/md_theme_onSurfaceVariant</item>
+    </style>
+
+    <!-- Toolbar Style -->
+    <style name="Widget.ReachInbox.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.ReachInbox.ToolbarTitle</item>
+        <item name="background">@color/md_theme_surface</item>
+    </style>
+
+    <!-- NavigationBar Style -->
+    <style name="Widget.ReachInbox.NavigationBar" parent="Widget.Material3.BottomNavigationView">
+        <item name="containerColor">@android:color/transparent</item>
+        <item name="itemIconTint">@color/nav_item_tint</item>
+        <item name="itemTextColor">@color/nav_item_tint</item>
+        <item name="itemRippleColor">@color/nav_item_ripple</item>
+        <item name="itemIconSize">24dp</item>
+        <item name="itemMinHeight">@dimen/navigation_bar_height</item>
+        <item name="itemPaddingTop">0dp</item>
+        <item name="itemPaddingBottom">0dp</item>
+        <item name="itemHorizontalTranslationEnabled">false</item>
+        <item name="itemIconGravity">top</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.ReachInbox.NavigationLabel</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.ReachInbox.NavigationLabel</item>
+        <item name="itemTextAppearanceActiveBoldEnabled">false</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/md_theme_surfaceVariant</item>
+        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
+        <item name="chipStrokeColor">@color/md_theme_outline</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="Widget.ReachInbox.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/md_theme_surface</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Card.Outline" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/md_theme_outline</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardBackgroundColor">@color/md_theme_surface</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Card.Surface" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/md_theme_surfaceVariant</item>
+    </style>
+
+    <!-- Badge/Status Styles -->
+    <style name="Widget.ReachInbox.Badge" parent="android:Widget">
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_badge_neutral</item>
+        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Badge.Success" parent="Widget.ReachInbox.Badge">
+        <item name="android:background">@drawable/bg_badge_success</item>
+        <item name="android:textColor">@color/colorOnSuccessContainer</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Badge.Warning" parent="Widget.ReachInbox.Badge">
+        <item name="android:background">@drawable/bg_badge_warning</item>
+        <item name="android:textColor">@color/colorOnWarningContainer</item>
+    </style>
+
+    <style name="Widget.ReachInbox.Badge.Error" parent="Widget.ReachInbox.Badge">
+        <item name="android:background">@drawable/bg_badge_error</item>
+        <item name="android:textColor">@color/colorOnErrorContainer</item>
+    </style>
+
+    <!-- Typography -->
+    <style name="TextAppearance.ReachInbox.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/md_theme_onSurface</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="TextAppearance.ReachInbox.Display" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textColor">@color/md_theme_onSurface</item>
+        <item name="android:textSize">@dimen/text_size_metric</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <style name="TextAppearance.ReachInbox.Title" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/md_theme_onSurface</item>
+        <item name="android:textSize">@dimen/text_size_headline</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="TextAppearance.ReachInbox.Section" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/md_theme_onSurface</item>
+        <item name="android:textSize">@dimen/text_size_section</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="TextAppearance.ReachInbox.CardTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/md_theme_onSurface</item>
+        <item name="android:textSize">@dimen/text_size_card_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="TextAppearance.ReachInbox.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/md_theme_onSurface</item>
+        <item name="android:textSize">@dimen/text_size_body_large</item>
+    </style>
+
+    <style name="TextAppearance.ReachInbox.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/md_theme_onSurface</item>
+        <item name="android:textSize">@dimen/text_size_body</item>
+    </style>
+
+    <style name="TextAppearance.ReachInbox.BodySecondary" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
+        <item name="android:textSize">@dimen/text_size_body</item>
+    </style>
+
+    <style name="TextAppearance.ReachInbox.Label" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
+        <item name="android:textSize">@dimen/text_size_label</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <style name="TextAppearance.ReachInbox.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/md_theme_onSurfaceVariant</item>
+        <item name="android:textSize">@dimen/text_size_caption</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="TextAppearance.ReachInbox.NavigationLabel" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- Shapes -->
+    <style name="ShapeAppearance.ReachInbox.Small" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">@dimen/corner_radius_small</item>
+    </style>
+
+    <style name="ShapeAppearance.ReachInbox.Medium" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerSize">@dimen/corner_radius_medium</item>
+    </style>
+
+    <style name="ShapeAppearance.ReachInbox.Large" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerSize">@dimen/corner_radius_large</item>
+    </style>
+
+    <style name="ShapeAppearance.ReachInbox.NavigationIndicator" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">14dp</item>
+    </style>
+
+
+
+</resources>

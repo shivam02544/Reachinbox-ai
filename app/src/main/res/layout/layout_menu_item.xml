@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.ReachInbox.Button.TextButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="start|center_vertical"
+    android:paddingStart="@dimen/spacing_16"
+    android:paddingEnd="@dimen/spacing_16"
+    android:paddingTop="@dimen/spacing_12"
+    android:paddingBottom="@dimen/spacing_12"
+    android:textAppearance="@style/TextAppearance.ReachInbox.Body"
+    android:textColor="@color/md_theme_onSurface"
+    app:iconPadding="@dimen/spacing_16"
+    app:iconSize="@dimen/icon_size_medium"
+    app:iconTint="@color/md_theme_primary" />

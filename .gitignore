@@ -1,0 +1,42 @@
+# Android / Gradle
+.gradle/
+.gradle-user/
+.android-user/
+**/build/
+local.properties
+*.iml
+.externalNativeBuild/
+.cxx/
+captures/
+
+# Android Studio
+.idea/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment and local credentials
+.env
+.env.*
+!.env.example
+login.json
+
+# Test and coverage output
+coverage/
+dist/
+
+# Local agent artifacts
+.artifacts/
+
+# Local logs and debug artifacts
+*.log
+reachinbox-crash.txt
+window_dump.xml
+
+# Operating system files
+.DS_Store
+Thumbs.db

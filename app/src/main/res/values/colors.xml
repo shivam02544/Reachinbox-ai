@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand -->
+    <color name="md_theme_primary">#6366F1</color>
+    <color name="md_theme_primaryPressed">#4F46E5</color>
+    <color name="md_theme_onPrimary">#FFFFFF</color>
+    <color name="md_theme_primaryContainer">#EEF2FF</color>
+    <color name="md_theme_onPrimaryContainer">#3730A3</color>
+
+    <!-- Neutral surfaces and text -->
+    <color name="md_theme_secondary">#656B7A</color>
+    <color name="md_theme_onSecondary">#FFFFFF</color>
+    <color name="md_theme_secondaryContainer">#F0F2F8</color>
+    <color name="md_theme_onSecondaryContainer">#363B49</color>
+    <color name="md_theme_background">#F7F8FC</color>
+    <color name="md_theme_onBackground">#171923</color>
+    <color name="md_theme_surface">#FFFFFF</color>
+    <color name="md_theme_onSurface">#171923</color>
+    <color name="md_theme_surfaceVariant">#F0F2F8</color>
+    <color name="md_theme_onSurfaceVariant">#656B7A</color>
+    <color name="md_theme_outline">#E3E6EF</color>
+    <color name="md_theme_outlineVariant">#C8CCDA</color>
+    <color name="md_theme_inverseSurface">#292D39</color>
+    <color name="md_theme_inverseOnSurface">#F3F4F6</color>
+
+    <!-- Navigation -->
+    <color name="floating_nav_surface">#FFFFFFFF</color>
+    <color name="floating_nav_outline">#00FFFFFF</color>
+    <color name="nav_item_unselected">#656B7A</color>
+    <color name="nav_indicator">#EEF2FF</color>
+    <color name="nav_item_ripple">#1F6366F1</color>
+
+    <!-- Semantic states -->
+    <color name="colorSuccess">#15803D</color>
+    <color name="colorOnSuccess">#FFFFFF</color>
+    <color name="colorSuccessContainer">#DCFCE7</color>
+    <color name="colorOnSuccessContainer">#14532D</color>
+    <color name="colorWarning">#F59E0B</color>
+    <color name="colorOnWarning">#FFFFFF</color>
+    <color name="colorWarningContainer">#FEF3C7</color>
+    <color name="colorOnWarningContainer">#78350F</color>
+    <color name="colorError">#EF4444</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorErrorContainer">#FEE2E2</color>
+    <color name="colorOnErrorContainer">#7F1D1D</color>
+    <color name="colorInfo">#38BDF8</color>
+    <color name="colorOnInfo">#FFFFFF</color>
+    <color name="colorInfoContainer">#E0F2FE</color>
+    <color name="colorOnInfoContainer">#0C4A6E</color>
+    <color name="colorNeutral">#656B7A</color>
+    <color name="colorOnNeutral">#FFFFFF</color>
+    <color name="colorNeutralContainer">#F0F2F8</color>
+    <color name="colorOnNeutralContainer">#363B49</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+</resources>

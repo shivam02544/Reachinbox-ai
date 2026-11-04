@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/md_theme_surface"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/title_campaign_details"
+            app:titleTextAppearance="@style/TextAppearance.ReachInbox.CardTitle" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/screen_padding">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ReachInbox.Card.Outline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_16">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvCampaignName"
+                                style="@style/TextAppearance.ReachInbox.Section"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                tools:text="Newsletter August" />
+
+                            <TextView
+                                android:id="@+id/tvStatus"
+                                style="@style/Widget.ReachInbox.Badge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_8"
+                                tools:text="RUNNING" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvSubject"
+                            style="@style/TextAppearance.ReachInbox.BodyLarge"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_12"
+                            tools:text="Subject: Monthly product update" />
+
+                        <TextView
+                            android:id="@+id/tvSender"
+                            style="@style/TextAppearance.ReachInbox.Caption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_4"
+                            tools:text="From: team@reachinbox.com" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="@dimen/spacing_16"
+                            android:background="@color/md_theme_outline" />
+
+                        <TextView
+                            style="@style/TextAppearance.ReachInbox.Label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="STATISTICS"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.1" />
+
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/progressIndicator"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_12"
+                            app:trackCornerRadius="4dp"
+                            app:trackThickness="10dp" />
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_16"
+                            android:columnCount="2"
+                            android:rowCount="2">
+
+                            <TextView
+                                android:id="@+id/tvTotalCount"
+                                style="@style/TextAppearance.ReachInbox.Body"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_marginBottom="@dimen/spacing_4"
+                                tools:text="Total: 100" />
+
+                            <TextView
+                                android:id="@+id/tvSentCount"
+                                style="@style/TextAppearance.ReachInbox.Body"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_marginBottom="@dimen/spacing_4"
+                                android:textColor="@color/colorSuccess"
+                                android:textStyle="bold"
+                                tools:text="Sent: 75" />
+
+                            <TextView
+                                android:id="@+id/tvFailedCount"
+                                style="@style/TextAppearance.ReachInbox.Body"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:textColor="@color/colorError"
+                                android:textStyle="bold"
+                                tools:text="Failed: 5" />
+
+                            <TextView
+                                android:id="@+id/tvPendingCount"
+                                style="@style/TextAppearance.ReachInbox.Body"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                tools:text="Pending: 20" />
+                        </GridLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:id="@+id/actionButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_16"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnStart"
+                        style="@style/Widget.ReachInbox.Button.Primary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Start"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPause"
+                        style="@style/Widget.ReachInbox.Button.Tonal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Pause"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnResume"
+                        style="@style/Widget.ReachInbox.Button.Primary"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Resume"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCancel"
+                        style="@style/Widget.ReachInbox.Button.Outlined"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_12"
+                        android:layout_weight="1"
+                        android:text="Cancel"
+                        android:textColor="@color/colorError"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRetryFailed"
+                    style="@style/Widget.ReachInbox.Button.Tonal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_12"
+                    android:text="Retry Failed Recipients"
+                    android:visibility="gone"
+                    app:icon="@drawable/ic_schedule" />
+
+                <TextView
+                    android:id="@+id/tvRecipientCount"
+                    style="@style/TextAppearance.ReachInbox.Label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_24"
+                    android:text="@string/label_recipients_title" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilRecipientSearch"
+                    style="@style/Widget.ReachInbox.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    android:hint="@string/hint_search_recipients"
+                    app:startIconDrawable="@drawable/ic_search"
+                    app:startIconTint="@color/md_theme_onSurfaceVariant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etRecipientSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_4"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnExportRecipients"
+                        style="@style/Widget.ReachInbox.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/btn_export_csv"
+                        android:textAllCaps="false"
+                        app:icon="@drawable/ic_download"
+                        app:iconTint="@color/md_theme_primary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDuplicateCampaign"
+                        style="@style/Widget.ReachInbox.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/btn_duplicate_campaign"
+                        android:textAllCaps="false"
+                        app:icon="@drawable/ic_copy"
+                        app:iconTint="@color/md_theme_primary" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextAppearance.ReachInbox.Label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    android:text="@string/label_recipient_results"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRecipients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_recipient" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_32" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorSize="48dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

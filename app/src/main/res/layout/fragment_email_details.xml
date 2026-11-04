@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_theme_background">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Metadata Header -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ReachInbox.Card.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/screen_padding"
+                app:cardBackgroundColor="@color/md_theme_surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_16">
+
+                    <TextView
+                        android:id="@+id/tvSubject"
+                        style="@style/TextAppearance.ReachInbox.Section"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="Introduction to our latest productivity platform" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_16"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvStatus"
+                            style="@style/Widget.ReachInbox.Badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="SENT" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/tvDate"
+                            style="@style/TextAppearance.ReachInbox.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="Aug 22, 2026, 10:30 AM" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_16"
+                        android:background="@color/md_theme_outline" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextAppearance.ReachInbox.Caption"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="From" />
+
+                        <TextView
+                            android:id="@+id/tvFrom"
+                            style="@style/TextAppearance.ReachInbox.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            tools:text="sales@reachinbox.ai" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/TextAppearance.ReachInbox.Caption"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="To" />
+
+                        <TextView
+                            android:id="@+id/tvTo"
+                            style="@style/TextAppearance.ReachInbox.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            tools:text="client@enterprise.com" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutScheduled"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <TextView
+                            style="@style/TextAppearance.ReachInbox.Caption"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="Schedule" />
+
+                        <TextView
+                            android:id="@+id/tvScheduledAt"
+                            style="@style/TextAppearance.ReachInbox.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/md_theme_primary"
+                            android:textStyle="bold"
+                            tools:text="Tomorrow, 10:00 AM" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Message Body -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.ReachInbox.Card.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/screen_padding"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/md_theme_surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_16">
+
+                    <TextView
+                        style="@style/TextAppearance.ReachInbox.Label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MESSAGE"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.1" />
+
+                    <TextView
+                        android:id="@+id/tvBody"
+                        style="@style/TextAppearance.ReachInbox.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_16"
+                        android:lineSpacingExtra="4dp"
+                        tools:text="Hi there,\n\nI'm writing to follow up on our previous conversation regarding the email automation features...\n\nBest regards,\nSales Team" />
+
+                    <TextView
+                        android:id="@+id/tvErrorMessage"
+                        style="@style/TextAppearance.ReachInbox.BodySecondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_24"
+                        android:background="@drawable/bg_badge_error"
+                        android:padding="@dimen/spacing_12"
+                        android:textColor="@color/colorOnErrorContainer"
+                        android:visibility="gone"
+                        tools:text="Failed to send: SMTP Authentication Error"
+                        tools:visibility="visible" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Dynamic Replies / Inbound Thread Section -->
+            <LinearLayout
+                android:id="@+id/layoutInboundContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/screen_padding"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/TextAppearance.ReachInbox.Section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Inbound Replies" />
+
+                <LinearLayout
+                    android:id="@+id/layoutRepliesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <!-- Failed Actions -->
+            <LinearLayout
+                android:id="@+id/layoutFailedActions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/screen_padding"
+                android:layout_marginBottom="32dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnReschedule"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Reschedule" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnResend"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Resend" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFollowUp"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/screen_padding"
+                android:layout_marginBottom="32dp"
+                android:text="AI Follow-Up"
+                android:visibility="gone"
+                app:icon="@drawable/ic_activity" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

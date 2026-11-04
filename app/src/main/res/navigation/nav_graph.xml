@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.reachinbox.app.ui.auth.LoginFragment"
+        android:label="@string/title_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.reachinbox.app.ui.auth.RegisterFragment"
+        android:label="@string/title_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/draftsFragment"
+        android:name="com.reachinbox.app.ui.email.DraftsFragment"
+        android:label="@string/nav_drafts"
+        tools:layout="@layout/fragment_drafts">
+        <action
+            android:id="@+id/action_draftsFragment_to_composeEmailFragment"
+            app:destination="@id/composeEmailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.reachinbox.app.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboardFragment_to_emailDetailsFragment"
+            app:destination="@id/emailDetailsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_composeEmailFragment"
+            app:destination="@id/composeEmailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scheduledEmailsFragment"
+        android:name="com.reachinbox.app.ui.scheduled.ScheduledEmailsFragment"
+        android:label="@string/nav_emails"
+        tools:layout="@layout/fragment_scheduled_emails">
+        <action
+            android:id="@+id/action_scheduledEmailsFragment_to_emailDetailsFragment"
+            app:destination="@id/emailDetailsFragment" />
+        <action
+            android:id="@+id/action_scheduledEmailsFragment_to_scheduleEmailFragment"
+            app:destination="@id/scheduleEmailFragment" />
+        <action
+            android:id="@+id/action_scheduledEmailsFragment_to_composeEmailFragment"
+            app:destination="@id/composeEmailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/scheduleEmailFragment"
+        android:name="com.reachinbox.app.ui.scheduled.ScheduleEmailFragment"
+        android:label="@string/title_schedule_email"
+        tools:layout="@layout/fragment_schedule_email" />
+
+    <fragment
+        android:id="@+id/composeEmailFragment"
+        android:name="com.reachinbox.app.ui.email.ComposeEmailFragment"
+        android:label="@string/title_compose"
+        tools:layout="@layout/fragment_compose_email">
+        <argument
+            android:name="emailId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/activityFragment"
+        android:name="com.reachinbox.app.ui.activity.ActivityFragment"
+        android:label="@string/title_activity"
+        tools:layout="@layout/fragment_activity">
+        <action
+            android:id="@+id/action_activityFragment_to_emailDetailsFragment"
+            app:destination="@id/emailDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sendersFragment"
+        android:name="com.reachinbox.app.ui.senders.SendersFragment"
+        android:label="@string/title_senders"
+        tools:layout="@layout/fragment_senders">
+        <action
+            android:id="@+id/action_sendersFragment_to_addSenderFragment"
+            app:destination="@id/addSenderFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addSenderFragment"
+        android:name="com.reachinbox.app.ui.senders.AddSenderFragment"
+        android:label="@string/title_add_sender"
+        tools:layout="@layout/fragment_add_sender" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.reachinbox.app.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.reachinbox.app.ui.profile.ProfileFragment"
+        android:label="@string/profile_information"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/templatesFragment"
+        android:name="com.reachinbox.app.ui.settings.TemplatesFragment"
+        android:label="Templates"
+        tools:layout="@layout/fragment_templates">
+        <action
+            android:id="@+id/action_templatesFragment_to_createEditTemplateFragment"
+            app:destination="@id/createEditTemplateFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createEditTemplateFragment"
+        android:name="com.reachinbox.app.ui.settings.CreateEditTemplateFragment"
+        android:label="Template">
+        <argument
+            android:name="templateId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.reachinbox.app.ui.more.MoreFragment"
+        android:label="@string/nav_more"
+        tools:layout="@layout/fragment_more">
+        <action
+            android:id="@+id/action_moreFragment_to_resumeFragment"
+            app:destination="@id/resumeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resumeFragment"
+        android:name="com.reachinbox.app.ui.resume.ResumeFragment"
+        android:label="AI Resume"
+        tools:layout="@layout/fragment_resume">
+        <action
+            android:id="@+id/action_resumeFragment_to_jobRequirementFragment"
+            app:destination="@id/jobRequirementFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/jobRequirementFragment"
+        android:name="com.reachinbox.app.ui.job.JobRequirementFragment"
+        android:label="Job Requirement"
+        tools:layout="@layout/fragment_job_requirement">
+        <action
+            android:id="@+id/action_jobRequirementFragment_to_matchResultFragment"
+            app:destination="@id/matchResultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/matchResultFragment"
+        android:name="com.reachinbox.app.ui.job.MatchResultFragment"
+        android:label="Match Result"
+        tools:layout="@layout/fragment_match_result">
+        <argument
+            android:name="jobRequirementId"
+            app:argType="string" />
+        <argument
+            android:name="suggestedSendAt"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_matchResultFragment_to_outreachFragment"
+            app:destination="@id/outreachFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/outreachFragment"
+        android:name="com.reachinbox.app.ui.outreach.OutreachFragment"
+        android:label="AI Outreach"
+        tools:layout="@layout/fragment_outreach">
+        <argument
+            android:name="jobRequirementId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/campaignsFragment"
+        android:name="com.reachinbox.app.ui.campaign.CampaignsFragment"
+        android:label="@string/nav_campaigns"
+        tools:layout="@layout/fragment_campaigns">
+        <action
+            android:id="@+id/action_campaignsFragment_to_campaignDetailsFragment"
+            app:destination="@id/campaignDetailsFragment" />
+        <action
+            android:id="@+id/action_campaignsFragment_to_createCampaignFragment"
+            app:destination="@id/createCampaignFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createCampaignFragment"
+        android:name="com.reachinbox.app.ui.campaign.CreateCampaignFragment"
+        android:label="@string/title_create_campaign"
+        tools:layout="@layout/fragment_create_campaign">
+        <action
+            android:id="@+id/action_createCampaignFragment_to_campaignDetailsFragment"
+            app:destination="@id/campaignDetailsFragment"
+            app:popUpTo="@id/campaignsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/campaignDetailsFragment"
+        android:name="com.reachinbox.app.ui.campaign.CampaignDetailsFragment"
+        android:label="@string/title_campaign_details"
+        tools:layout="@layout/fragment_campaign_details">
+        <argument
+            android:name="campaignId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_campaignDetailsFragment_self"
+            app:destination="@id/campaignDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/emailDetailsFragment"
+        android:name="com.reachinbox.app.ui.email.EmailDetailsFragment"
+        android:label="@string/title_email_details"
+        tools:layout="@layout/fragment_email_details">
+        <argument
+            android:name="emailId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_emailDetailsFragment_to_followUpFragment"
+            app:destination="@id/followUpFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/followUpFragment"
+        android:name="com.reachinbox.app.ui.followup.FollowUpFragment"
+        android:label="AI Follow-Up"
+        tools:layout="@layout/fragment_followup">
+        <argument
+            android:name="parentEmailId"
+            app:argType="string" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_addSenderFragment"
+        app:destination="@id/addSenderFragment" />
+
+    <action
+        android:id="@+id/action_global_sendersFragment"
+        app:destination="@id/sendersFragment" />
+
+</navigation>
