@@ -19,12 +19,22 @@ Developed as a **Mobile App Development Project** by:
 ---
 
 ## 📑 Table of Contents
-1. [Core Features & Walkthrough](#-core-features--walkthrough)
-2. [System Architecture](#-system-architecture)
-3. [Technology Stack](#-technology-stack)
-4. [Getting Started (Local Development)](#-getting-started-local-development)
-5. [Inbound Webhook Configuration](#-inbound-webhook-configuration)
-6. [Security & Isolation](#-security--isolation)
+1. [Promo Video & Documentation](#-promo-video--documentation)
+2. [Core Features & Walkthrough](#-core-features--walkthrough)
+3. [System Architecture](#-system-architecture)
+4. [Technology Stack](#-technology-stack)
+5. [Getting Started (Local Development)](#-getting-started-local-development)
+6. [Inbound Webhook Configuration](#-inbound-webhook-configuration)
+7. [Security & Isolation](#-security--isolation)
+
+---
+
+## 🎥 Promo Video & Documentation
+
+Get a quick look at ReachInbox AI in action and read through our development review document:
+
+- **Promo Video**: [Watch the App Promo Video (MP4)](assets/video/evvot-editor-2026-10-30%20(1).mp4)
+- **Review Document**: [Read the MAD Activity Review Papers (PDF)](assets/doc/mad%20activity%201%20and%202%20review%20papers.pdf)
 
 ---
 
