@@ -43,37 +43,37 @@ Get a quick look at ReachInbox AI in action and read through our development rev
 ### 1. Dashboard & Campaign Activity
 Monitor your total sent, scheduled, and failed emails at a glance. Access detailed historical activity logs of all AI generations and email dispatches.
 
-<img src="reachinbox-screenshot/dashboard.jpeg" width="300" alt="Dashboard Overview"/>
+<img src="reachinbox-screenshot/03-dashboard-overview.jpeg" width="300" alt="Dashboard Overview"/>
 <br><em>> The main dashboard displaying high-level metrics and recent user activity.</em>
 
 ### 2. Resume Intelligence (PDF Parsing)
 Upload standard or complex PDF resumes directly from your Android device. The backend securely extracts the text using `pdf2json` and utilizes **Gemini AI** to structure the candidate's profile (Skills, Education, Experience, Projects, Achievements).
 
-<img src="reachinbox-screenshot/resume.jpeg" width="300" alt="Resume Upload and Parse"/>
+<img src="reachinbox-screenshot/06-resume-parsed.jpeg" width="300" alt="Resume Upload and Parse"/>
 <br><em>> Instant PDF parsing and AI structuring of candidate profiles.</em>
 
 ### 3. Job Requirement & AI Matching
 Input a job description (or import via URL). ReachInbox AI performs a deterministic **Match Analysis** against the uploaded resume, identifying exact skill matches, missing requirements, potential gaps, and highly targeted personalization points to use in outreach.
 
-<img src="reachinbox-screenshot/match-analysis.jpeg" width="300" alt="Job Matching Analysis"/>
+<img src="reachinbox-screenshot/08-match-analysis-result.jpeg" width="300" alt="Job Matching Analysis"/>
 <br><em>> Detailed gap analysis between the candidate's resume and the target job description.</em>
 
 ### 4. AI Personalized Outreach Generation
 Generate perfectly grounded, professional cold emails. The AI synthesizes the resume data and job gaps to write an email that specifically highlights why the candidate is a perfect fit. Supports multiple tones (Professional, Concise, Friendly, Formal).
 
-<img src="reachinbox-screenshot/outreach.jpeg" width="300" alt="Outreach Generation"/>
+<img src="reachinbox-screenshot/10-outreach-preview.jpeg" width="300" alt="Outreach Generation"/>
 <br><em>> Generating a personalized outreach draft using AI.</em>
 
 ### 5. Seamless Email Compose, Send & Schedule
 Edit AI-generated drafts in a fully-featured composer. Send immediately via Nodemailer (SMTP), or schedule the email for a future date. Background dispatching is handled reliably by **BullMQ** and **Redis**.
 
-<img src="reachinbox-screenshot/compose-schedule.jpeg" width="300" alt="Compose and Schedule"/>
+<img src="reachinbox-screenshot/12-schedule-email.jpeg" width="300" alt="Compose and Schedule"/>
 <br><em>> Reviewing the draft and setting a scheduled delivery time.</em>
 
 ### 6. Automated Follow-Ups & Threading
 Schedule sequenced follow-up emails (e.g., "Polite Bump", "Final Wrap-up"). Follow-ups are automatically chained to the original parent email using `In-Reply-To` headers, preserving the conversation thread in the recipient's inbox.
 
-<img src="reachinbox-screenshot/followup.jpeg" width="300" alt="Follow-Up Generation"/>
+<img src="reachinbox-screenshot/15-followup-preview.jpeg" width="300" alt="Follow-Up Generation"/>
 <br><em>> Generating a contextual follow-up sequence linked to the parent email.</em>
 
 ### 7. Inbound Reply Detection & Follow-up Suppression
@@ -82,7 +82,7 @@ ReachInbox listens for inbound replies via a provider-agnostic webhook. When a r
 ### 8. AI Reply Intelligence
 When a reply is received, the AI analyzes the incoming message to classify the intent (`INTERESTED`, `NOT_INTERESTED`, `INTERVIEW_RELATED`, etc.), summarizes the response, and generates an editable suggested reply draft for the user.
 
-<img src="reachinbox-screenshot/reply-analysis.jpeg" width="300" alt="Reply Intelligence"/>
+<img src="reachinbox-screenshot/16-email-details-thread.jpeg" width="300" alt="Reply Intelligence"/>
 <br><em>> Viewing an inbound reply and utilizing AI to draft a suggested response.</em>
 
 ---
